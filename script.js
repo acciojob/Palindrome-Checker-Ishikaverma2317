@@ -1,21 +1,15 @@
-process.stdin.resume();
-process.stdin.setEncoding("utf-8");
-
-let input = "";
-
-process.stdin.on("data", function (chunk) {
-  input += chunk;
-});
-
-process.stdin.on("end", function () {
-  input = input.trim();
-  console.log(isPalindrome(input));
-});
-
 function isPalindrome(s) {
-  // Remove non-alphanumeric chars and convert to lowercase
-  const cleanStr = s.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+  // Step 1: Remove all non-alphanumeric characters and convert to lowercase
+  let cleaned = s.replace(/[^a-z0-9]/gi, '').toLowerCase();
 
-  // Compare the cleaned string with its reverse
-  return cleanStr === cleanStr.split("").reverse().join("");
+  // Step 2: Reverse the cleaned string
+  let reversed = cleaned.split('').reverse().join('');
+
+  // Step 3: Compare cleaned and reversed versions
+  return cleaned === reversed;
 }
+
+// Example Test
+console.log(isPalindrome("race a car")); // false
+console.log(isPalindrome("A man, a plan, a canal: Panama")); // true
+console.log(isPalindrome("raceCAR")); // true
