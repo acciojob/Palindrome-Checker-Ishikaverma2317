@@ -5,11 +5,6 @@ function isPalindrome(s) {
     // Reverse the cleaned string
     let reversed = cleaned.split("").reverse().join("");
 
-    // Compare
+    // Check if palindrome
     return cleaned === reversed;
 }
-
-// Test
-console.log(isPalindrome("race a car")); // false
-console.log(isPalindrome("A man, a plan, a canal: Panama")); // true
-console.log(isPalindrome("raceCAR")); // true
